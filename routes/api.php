@@ -17,6 +17,11 @@ Route::get("lists/categories", [categoryController::class, "list"]);
 //Route::get('categories/{category}', [CategoryController::class, 'show']);
 //Route::post('categories', [CategoryController::class, 'store']);
 
-Route::apiResource("categories", categoryController::class);
+//Llamado grupo de rutas para aplicar la seguridad a todas las rutas que queramos sin necesidad de ir 1 a 1
+Route::middleware(['auth:sanctum'])->group(function () {
 
-Route::get('products', [ProductController::class, 'index']);
+    Route::apiResource("categories", categoryController::class);
+
+    Route::get('products', [ProductController::class, 'index']);
+});
+
