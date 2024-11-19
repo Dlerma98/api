@@ -18,21 +18,36 @@ use Symfony\Component\HttpFoundation\Response;
  * Managing categories
  */
 
-#[QueryParam('page','int','The page number',example: 12)]
 class CategoryController extends Controller
 {
     /**
-     * Get all categories
+     * @OA\Get (
+     *     path="/categories",
+     *     tags={"Categories"},
+     *     summary="Get List all categories",
+     *     @OA\Response(
+     *         response="200",
+     *     description="Succesful operation",
      *
-     * Getting the list of the categories
+     *     ),
+     *     @OA\Response(
+     *          response="401",
+     *      description="Unauthenticated",
+     *
+     *      ),
+     *     @OA\Response(
+     *          response="403",
+     *      description="Forbidden",
+     *
+     *      ),
+     * )
+     *
      */
     public function index()
     {
         abort_if(!auth()->user()->tokenCan('categories-list'), 403);
         return CategoryResource::collection(Category::all());
     }
-
-    #[Endpoint('Show category',description: 'Get a category by ID')]
 
     public function show(Category $category)
     {
