@@ -6,7 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Product;
 use App\Http\Controllers\ProductResource;
 use Illuminate\Http\Request;
+use Knuckles\Scribe\Attributes\Endpoint;
 
+/**
+ * @group Products
+ *
+ * Managing products
+ *
+ * @queryParam page int The page number. Example: 1
+ */
 class ProductController extends Controller
 {
     /**

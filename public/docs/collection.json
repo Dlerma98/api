@@ -10,63 +10,15 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "fa89f3d9-ef48-4652-a6a9-f6e8a69e3f05",
+        "_postman_id": "609a8633-6295-4770-868f-4566f0cb4f32",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
-            "description": "",
+            "name": "Categories",
+            "description": "\nManaging categories",
             "item": [
-                {
-                    "name": "GET api\/user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "vary",
-                                    "value": "Origin"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "GET api\/lists\/categories",
                     "request": {
@@ -88,10 +40,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -116,7 +65,7 @@
                     ]
                 },
                 {
-                    "name": "GET api\/categories",
+                    "name": "Get all categories",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -136,10 +85,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "Getting the list of the categories"
                     },
                     "response": [
                         {
@@ -185,17 +131,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quo\"}"
+                            "raw": "{\"name\":\"perferendis\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
                 {
-                    "name": "GET api\/categories\/{id}",
+                    "name": "Show category",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -206,7 +149,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "4",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -223,10 +166,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "Get a category by ID"
                     },
                     "response": [
                         {
@@ -262,7 +202,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "15",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -280,12 +220,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"tempora\"}"
+                            "raw": "{\"name\":\"mollitia\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
@@ -301,7 +238,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "6",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -318,13 +255,67 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "description": "\nManaging products",
+            "item": [
                 {
                     "name": "Display a listing of the resource.",
                     "request": {
@@ -346,10 +337,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -377,6 +365,12 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
     }
 }
