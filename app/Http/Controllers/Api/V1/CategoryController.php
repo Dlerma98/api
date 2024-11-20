@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Knuckles\Scribe\Attributes\Endpoint;
-use Knuckles\Scribe\Attributes\QueryParam;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @group Categories
@@ -48,6 +45,8 @@ class CategoryController extends Controller
         abort_if(!auth()->user()->tokenCan('categories-list'), 403);
         return CategoryResource::collection(Category::all());
     }
+
+    #[Endpoint('Show category',description: 'Get a category by ID')]
 
     public function show(Category $category)
     {

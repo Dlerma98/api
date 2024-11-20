@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Product;
 use App\Http\Controllers\ProductResource;
 use Illuminate\Http\Request;
-use Knuckles\Scribe\Attributes\Endpoint;
 
 
 class ProductController extends Controller
