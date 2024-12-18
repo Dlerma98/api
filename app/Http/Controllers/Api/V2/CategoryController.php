@@ -43,7 +43,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        abort_if(!auth()->user()->tokenCan('categories-list'), 403);
+        abort_if(! auth()->user()->tokenCan('categories-show-create')
+            && ! auth()->user()->tokenCan('categories-list'), 403, 'no va');
         return CategoryResource::collection(Cache::rememberForever('categories', function () {
             return Category::all();
         }));
@@ -53,7 +54,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        abort_if(!auth()->user()->tokenCan('categories-show'), 403);
+        abort_if(! auth()->user()->tokenCan('categories-show-create'), 403, 'You do not have permission to show/create categories.');
         return new CategoryResource($category);
     }
     //
@@ -70,6 +71,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
+        abort_if(! auth()->user()->tokenCan('categories-show-create'), 403, 'You do not have permission to create categories.');
         $data = $request->all();
         if($request->hasFile('photo')) {
             $file = $request->file('photo');
