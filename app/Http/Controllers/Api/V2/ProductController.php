@@ -77,4 +77,22 @@ class ProductController extends Controller
         // return response(null, Response::HTTP_NO_CONTENT);
         return response()->noContent();
     }
+
+
+    public function getProductsByCategory($categoryId)
+    {
+        // Verifica si la categoría existe
+        $category = Category::find($categoryId);
+
+        if (!$category) {
+            // Si no se encuentra la categoría, puedes devolver un error o una respuesta vacía
+            return response()->json(['message' => 'Category not found'], 404);
+        }
+
+        // Obtener los productos de la categoría
+        $products = $category->products; // Asumiendo que tienes una relación definida en el modelo Category
+
+        // Retornar los productos encontrados
+        return response()->json($products);
+    }
 }

@@ -23,4 +23,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource("categories", categoryController::class);
     Route::apiResource("products", ProductController::class)
         ->middleware('throttle:products');
+
+    Route::get('products/category/{categoryId}', [ProductController::class, 'getProductsByCategory']);
 });
