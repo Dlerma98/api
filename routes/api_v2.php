@@ -21,7 +21,6 @@ Route::get("lists/categories", [categoryController::class, "list"]);
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResource("categories", categoryController::class);
-
-    Route::get('products', [ProductController::class, 'index'])
+    Route::apiResource("products", ProductController::class)
         ->middleware('throttle:products');
 });
