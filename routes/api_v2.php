@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V2\CategoryController;
+use App\Http\Controllers\Api\V2\CommentController;
 use App\Http\Controllers\Api\V2\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
         ->middleware('throttle:products');
 
     Route::get('products/category/{categoryId}', [ProductController::class, 'getProductsByCategory']);
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('products/{productId}/comments', [CommentController::class, 'store']);
+    Route::get('products/{productId}/comments', [CommentController::class, 'index']);
+    Route::post('comments/{commentId}/reply', [CommentController::class, 'reply']);
+    Route::delete('comments/{commentId}', [CommentController::class, 'destroy']);
 });
